@@ -1,0 +1,63 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    /*overflow: hidden;*/
+    font-size: 22px;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+}
+
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#UI {
+    position: absolute;
+    display: grid;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    user-select: none;
+}
+
+button {
+    background: purple;
+    padding: 10px;
+    outline: none;
+    border: none;
+    transition: 0.2s;
+    color: white;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background: mediumpurple;
+}
+
+button.selected {
+    background: #9f2d9f;
+
+}
+
+.GameMenu {
+    background: #2c106e;
+    display: grid;
+    padding: 10px;
+    grid-gap: 10px
+}
+
+.GameBack {
+    background: rgba(3, 15, 65, 0.49);
+    padding: 5px;
+}
