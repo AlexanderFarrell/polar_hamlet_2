@@ -1,10 +1,11 @@
 import {CreatePattern, NewEntity} from "./entity.js";
-import {entities} from "./world.js";
+import {entities, solid} from "./world.js";
 import {updatables} from "../../engine/aspect.js";
 import {IsKeyPressed} from "../../engine/input.js";
 import {camera} from "../../engine/renderer.js";
 import {SwitchAppState} from "../../engine/app.js";
 import {CreateMenuState} from "../states/menu.js";
+import { IsWithinRectRough } from "../../engine/math.js";
 
 export function InitPlayer(x = 0, y = 0, name='Unnamed') {
     let playerPattern = CreatePattern('Player', '/content/person001.png', 32, 64);
@@ -27,6 +28,15 @@ export function InitPlayer(x = 0, y = 0, name='Unnamed') {
 
         camera.rect.x = player.bounds.x - camera.rect.width/2;
         camera.rect.y = player.bounds.y - camera.rect.height/2;
+
+        solid.forEach((solidObject) => {
+            player.bounds 
+            solidObject.bounds
+
+            if (IsWithinRectRough(player.bounds, solidObject.bounds)) {
+                document.body.innerHTML = "you lose"
+            }
+        })
 
         if (IsKeyPressed('q')) {
             SwitchAppState(CreateMenuState());

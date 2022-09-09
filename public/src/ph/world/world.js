@@ -6,6 +6,7 @@ import {RandInt, RandIntM} from "../../engine/random.js";
 
 export let tileTypes = [];
 export let entities = [];
+export let solid = [];
 let grid = [];
 let width = 100;
 let height = 100;
@@ -99,10 +100,12 @@ export function CreateWorld() {
     }
 
     let treePattern = CreatePattern('tree', '/content/tree001.png', tileSize, tileSize*2);
-    for (let i = 0; i < (width*height)*0.3; i++) {
-        entities.push(NewEntity(treePattern,
+    for (let i = 0; i < (width*height)*0.01; i++) {
+        let tree = NewEntity(treePattern,
             RandInt(width*tileSize),
-            RandInt(height*tileSize)));
+            RandInt(height*tileSize));
+        entities.push(tree);
+        solid.push(tree)
     }
 
     tileTypes.push(CreateTileType('Snow', 'snow001.png'));
